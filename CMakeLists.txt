@@ -3,9 +3,17 @@ project(ESPRESSO VERSION 0.0.1
                 DESCRIPTION "Extremely SimPle RadiativE Simulation using Stochastic Output: A CPU and GPU supported Monte Carlo Radiative Transfer Code."
                 LANGUAGES CXX)
 
+find_package(Kokkos QUIET)
+if (NOT Kokkos_FOUND)
+  include(FetchContent)
+  FetchContent_Declare(
+    Kokkos
+    URL https://github.com/kokkos/kokkos/archive/refs/tags/4.5.01.zip
+  )
+  FetchContent_MakeAvailable(Kokkos)
+endif()
 
-find_package(Kokkos REQUIRED)
-find_package(OpenMP QUIET)
+find_package(OpenMP)
 
 add_executable(espresso espresso.cpp)
 
