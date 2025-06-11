@@ -27,7 +27,7 @@ if(MSVC)
 else()
   target_compile_options(espresso PRIVATE
     -O3
-    -march=native-
+    -march=native
     -ffast-math
     $<$<BOOL:${OpenMP_CXX_FOUND}>:-fopenmp>
   )
