@@ -31,4 +31,9 @@ target_link_libraries(espresso PRIVATE
 )
 
 
-# MAKE WITH cmake .. -DKokkos_ROOT=/usr/local/kokkos-openmp/lib/cmake/Kokkos -DCMAKE_CXX_COMPILER=/opt/homebrew/bin/g++-15
+# FOR OPENMP, build with something like
+#   cmake .. -DKokkos_ENABLE_OPENMP=ON -DKokkos_ROOT=/usr/local/kokkos-openmp/lib/cmake/Kokkos -DCMAKE_CXX_COMPILER=/opt/homebrew/bin/g++-15
+# ON MAC (and no openmp), you can also build with something like
+#   cmake .. -DKokkos_ENABLE_THREADS=ON
+# FOR GPU, build with something like
+#   cmake .. -DKokkos_ENABLE_CUDA=ON
