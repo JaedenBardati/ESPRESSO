@@ -1,14 +1,11 @@
 cmake_minimum_required(VERSION 3.15...4.0)
 project(ESPRESSO VERSION 0.0.1
-                DESCRIPTION "Extremely SimPle RadiativE Simulation using Stochastic Output: A GPU-based Monte Carlo Radiative Transfer Code"
+                DESCRIPTION "Extremely SimPle RadiativE Simulation using Stochastic Output: A CPU and GPU supported Monte Carlo Radiative Transfer Code."
                 LANGUAGES CXX)
 
 
-set(CMAKE_CXX_COMPILER "/opt/homebrew/bin/g++-15")
-
-
-find_package(OpenMP REQUIRED)
 find_package(Kokkos REQUIRED)
+find_package(OpenMP QUIET)
 
 add_executable(espresso espresso.cpp)
 
